@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Twitch Overlay Pop-up</title>
+<style>
+  body {
+    margin: 0;
+    background: transparent; /* OBS: transparent */
+  }
+
+  .overlay {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+  }
+
+  .popup {
+    position: absolute;
+    width: 120px;
+    height: 50px;
+    background: #9146FF;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    animation: flummi 4s cubic-bezier(.28,.84,.42,1) forwards;
+  }
+
+  @keyframes flummi {
+    0% {
+      top: 500px; /*startposition Mitte*/
+      left: 0;
+      transform: rotate(0deg);
+    }
+    15% {
+      top: 0;       /* obere Wand */
+      left: 1800px; /* rechte Wand: 1920 - 120 */
+      transform: rotate(20deg);
+    }
+    30% {
+      top: 900px;  /* untere Wand: 1080 - 50 */
+      left: 1600px; /* rechte Wand */
+      transform: rotate(-15deg);
+    }
+    50% {
+      top: 730px;  /* untere Wand */
+      left: 400px;      /* linke Wand */
+      transform: rotate(10deg);
+    }
+    70% {
+      top: 200px;   
+      left: 800px;
+      transform: rotate(-10deg);
+    }
+    85% {
+      top: 190px;
+      left: 900px;
+      transform: rotate(5deg);
+    }
+    100% {
+      top: 515px;   /* Mitte vertikal: (1080-50)/2 */
+      left: 900px;  /* Mitte horizontal: (1920-120)/2 */
+      transform: rotate(0deg);
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="popup">POP UP!</div>
+  </div>
+</body>
+</html>
